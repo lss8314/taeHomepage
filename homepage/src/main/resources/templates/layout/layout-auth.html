@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <main>
+        <!-- 자식에서 넘어온 content -->
+        <div th:replace="${content}"></div>
+    </main>
+
+</div>
+
+</body>
+</html>

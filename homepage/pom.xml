@@ -66,6 +66,13 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		 <!--html 자동 반영-->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-devtools</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

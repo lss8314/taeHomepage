@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Homepage'">Homepage</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <main>
+        <!-- 자식에서 넘어온 content -->
+        <div th:replace="${content}"></div>
+    </main>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</div>
+
+</body>
+</html>
