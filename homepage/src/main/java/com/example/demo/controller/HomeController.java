@@ -9,9 +9,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-    	model.addAttribute("content", "index :: content");
         model.addAttribute("title", "홈");
         
-        return "layout/layout";
+        return "index";
     }
 }
