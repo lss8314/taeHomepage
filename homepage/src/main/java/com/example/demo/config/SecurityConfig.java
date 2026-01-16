@@ -15,7 +15,7 @@ public class SecurityConfig {
         http
             // 요청별 접근 권한 설정
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/login","/join" , "/css/**", "/js/**").permitAll()
                 .anyRequest().authenticated()
             )
 

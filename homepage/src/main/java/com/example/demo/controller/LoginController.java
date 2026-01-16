@@ -20,4 +20,7 @@ public class LoginController {
 	    model.addAttribute("title", "로그인");
 	    return "login"; // ★ layout 아님
 	}
+
+	
+	
 }

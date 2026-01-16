@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title th:text="${title} ?: 'Homepage'">Homepage</title>
     <link rel="stylesheet" th:href="@{/css/common.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
 </head>
 
 <body>
@@ -16,7 +18,7 @@
 
     <main>
         <!-- 자식에서 넘어온 content -->
-        <div th:replace="${content}"></div>
+        <div class ="content" th:replace="${content}"></div>
     </main>
 
     <div th:replace="fragments/footer :: footer"></div>

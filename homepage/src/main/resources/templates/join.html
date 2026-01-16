@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/layout-login :: layout(~{::content})}">
+<body>
+
+<div th:fragment="content">
+
+    <h2>회원가입</h2>
+
+    <form th:action="@{/join}" method="post">
+
+        <div>
+            <input type="text" name="username" placeholder="아이디"/>
+        </div>
+
+        <div>
+            <input type="password" name="password" placeholder="비밀번호"/>
+        </div>
+
+        <div>
+            <input type="password" name="passwordConfirm" placeholder="비밀번호 확인"/>
+        </div>
+
+        <div>
+            <input type="text" name="name" placeholder="이름"/>
+        </div>
+
+        <button type="submit">회원가입</button>
+        <button type="button" id="cancel">취소</button>
+
+    </form>
+
+    <script>
+    $(function () {
+        $("#cancel").on("click", function () {
+            location.href = "/login";
+        });
+    });
+    </script>
+
+</div>
+
+</body>
+</html>

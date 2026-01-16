@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/layout-auth :: layout(~{::content})">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/layout-login :: layout(~{::content})}">
 <body>
+
+
 
 <div th:fragment="content">
 
     <h2>로그인</h2>
 
-    <form th:action="@{/login}" method="post">
+    
         <div>
             <input type="text" name="username" placeholder="아이디"/>
         </div>
         <div>
             <input type="password" name="password" placeholder="비밀번호"/>
         </div>
-        <button type="submit">로그인</button>
-    </form>
+        <button type="button">로그인</button>
+    
+    <button type="button" id="newMember">회원가입1</button>
 
     <div th:if="${param.error}">
         <p style="color:red">로그인 실패!</p>
     </div>
-
+	
+	
+		
+	<script type="text/javascript">
+		$(function (){
+			$("#newMember").on("click" , function(){
+				location.href = "/join";
+			});
+		});
+		
+				
+	</script>
 </div>
+
 
 </body>
 </html>

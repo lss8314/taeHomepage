@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  background: white;
+}
+
+.content {
+  padding: 3rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  background: coral;
+}
