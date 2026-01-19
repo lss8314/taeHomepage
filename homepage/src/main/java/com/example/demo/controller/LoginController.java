@@ -21,6 +21,11 @@ public class LoginController {
 	    return "login"; // ★ layout 아님
 	}
 
-	
+	  @GetMapping("/join")
+	    public String join(Model model) {
+		  log.info("회원가입으로 이동!");
+	        model.addAttribute("title", "회원가입");
+	        return "join";
+	    }
 	
 }
