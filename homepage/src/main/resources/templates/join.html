@@ -7,35 +7,134 @@
 
     <h2>회원가입</h2>
 
-    <form th:action="@{/join}" method="post">
+    <form>
 
         <div>
-            <input type="text" name="username" placeholder="아이디"/>
+            <input class="inqure" type="text" name="username" placeholder="아이디"/>
         </div>
 
         <div>
-            <input type="password" name="password" placeholder="비밀번호"/>
+            <input class="inqure" type="password" name="password" placeholder="비밀번호"/>
         </div>
 
         <div>
-            <input type="password" name="passwordConfirm" placeholder="비밀번호 확인"/>
+            <input class="inqure" type="password" name="passwordConfirm" placeholder="비밀번호 확인"/>
         </div>
 
         <div>
-            <input type="text" name="name" placeholder="이름"/>
+            <input class="inqure" type="text" name="name" placeholder="이름"/>
         </div>
-
-        <button type="submit">회원가입</button>
-        <button type="button" id="cancel">취소</button>
+		<div style="marign : 10px; ">
+			<button type="button" id="join">회원가입</button>
+	        <button type="button" id="cancel">취소</button>
+		</div>
+        
 
     </form>
 
     <script>
     $(function () {
+
+    	//최소 버튼
         $("#cancel").on("click", function () {
             location.href = "/login";
         });
+    	
+    	
+    	//회원가입 버튼
+    	$("#join").on("click", function(){
+
+    		
+    		var useName = $('input[name=username]').val();
+    		var password = $('input[name=password]').val();
+    		var name = $('input[name=name]').val();
+    		
+    		var passwordConfirm = $('input[name=passwordConfirm]').val();
+    		
+    		
+    		if(useName == '' ){
+				alert("아이디를 입력해주세요");
+				return;
+			}
+    		
+    		if(password == ''){
+    			alert("비밀번호를 입력해주세요");
+    			return;
+			}
+    		
+    		if(name == ''){
+    			alert("이름을 입력해주세요");
+    			return;
+			}
+    		
+    		if(passwordConfirm == ''){
+    			alert("비밀번호 확인을 입력해주세요");
+    			return;
+			}
+    		
+    		//비밀번호 체크
+    		if(passwordConfirm !== password ){
+    			alert("비밀번호, 비밀번호확인이 일치하지않습니다.");
+    			return;
+			}
+    	
+    		//데이터 세팅
+    		const data = {
+    				username : $('input[name=username]').val(),
+    				password : $('input[name=password]').val(),
+    				name : $('input[name=name]').val(),
+    		}
+    		
+    		$.ajax({
+    			  url: "/join",
+    	            type: "POST",
+    	            contentType: "application/json",
+    	            data: JSON.stringify(data),
+    	            success: function (res) {
+    	                alert("회원가입 성공!");
+    	                location.href = "/login";
+    	            },
+    	            error: function (err) {
+    	                alert(err.responseText || "회원가입 실패");
+    	            }
+    			
+    			
+    		})
+    		
+    		
+    		
+		});
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
+    
+    
+    
+    
+    
     </script>
 
 </div>

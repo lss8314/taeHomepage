@@ -15,7 +15,7 @@ public class SecurityConfig {
         http
             // 요청별 접근 권한 설정
             .authorizeHttpRequests(auth -> auth
-            	.requestMatchers("/login", "/join","/join/**", "/join/", "/css/**", "/js/**").permitAll()
+            	.requestMatchers("/login", "/join","/join/**", "/join/", "/css/**", "/js/**" , "/__test").permitAll()
                 .anyRequest().authenticated()
             )
 
@@ -27,7 +27,9 @@ public class SecurityConfig {
             		)
 
             // 로그아웃 허용
-            .logout(Customizer.withDefaults());
+            .logout(Customizer.withDefaults())
+            .csrf(csrf -> csrf.disable());
+        	
 
         return http.build();
     }
