@@ -1,5 +1,4 @@
-package com.example.demo.controller;
-
+package com.example.demo.login.controller;
 
 import org.slf4j.Logger;
 
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.HomeController;
 import com.example.demo.dto.JoinRequest;
 
 
